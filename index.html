@@ -6,6 +6,13 @@
     <title>دليل أكواد وي WE الشامل 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* تصفير الهوامش وضمان بقاء كل العناصر على استقامة واحدة دون أي ميلان */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --we-purple: #4e148c; /* لون وي البنفسجي المميز */
             --we-magenta: #ff007a; /* لون وي الماجنتو */
@@ -18,11 +25,15 @@
             background-image: radial-gradient(circle at top right, #2d0b52, transparent), radial-gradient(circle at bottom left, #0a0114, transparent);
             color: #fff;
             font-family: 'Cairo', sans-serif;
-            margin: 0;
             padding: 20px;
+            direction: rtl;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
 
         header {
             text-align: center;
@@ -35,16 +46,18 @@
             justify-content: center;
         }
 
-        /* تنسيق منطقة الشعار والعنوان */
+        /* تنسيق منطقة الشعار والعنوان بشكل مستقيم */
         .brand-wrapper {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 20px;
             margin-bottom: 15px;
+            width: 100%;
         }
 
         .we-logo {
-            width: 80px; /* حجم الشعار */
+            width: 80px;
             height: auto;
             filter: drop-shadow(0 0 10px rgba(255, 0, 122, 0.3));
         }
@@ -64,24 +77,37 @@
             .we-logo { width: 60px; }
         }
 
+        /* تنسيق العناوين الجانبية لتبقى مستقيمة */
+        .section-title-wrapper {
+            text-align: center;
+            width: 100%;
+            margin: 40px 0 20px;
+        }
+
         .section-title {
             color: #fff;
             background: linear-gradient(90deg, var(--we-purple), var(--we-magenta));
             padding: 10px 25px;
             border-radius: 50px;
-            margin: 40px 0 20px;
             font-size: 1.2rem;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
+        /* شبكة الكروت مع ضبط الاستقامة التامة والسنترة */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 15px;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
         }
 
+        /* الكروت مضبوطة الحجم والارتفاع والهوامش داخلياً */
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 0, 122, 0.15);
@@ -92,7 +118,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .card:hover {
@@ -101,8 +129,16 @@
             background: rgba(78, 20, 140, 0.15);
         }
 
-        .card-title { font-weight: bold; margin-bottom: 10px; color: #eee; min-height: 45px; font-size: 1.05rem; }
+        .card-title { 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+            color: #eee; 
+            font-size: 1.05rem; 
+            width: 100%;
+            display: block;
+        }
 
+        /* صندوق الكود وتأمين استقامته وعرضه المتناسق */
         .code-box {
             background: #000;
             color: #00ffcc;
@@ -115,14 +151,16 @@
             cursor: pointer;
             border: 1px solid #333;
             box-shadow: inset 0 0 10px rgba(0,255,204,0.1);
+            width: 100%;
+            display: block;
+            text-align: center;
         }
 
         .code-box:active { transform: scale(0.95); background: #111; }
 
-        /* تعديل وحل مشكلة شريط البحث */
+        /* شريط البحث المصلح هندسياً لمنع الميلان تماماً */
         .search-bar {
             width: 100%;
-            box-sizing: border-box; /* تضمن بقاء الحقل داخل حدود الشاشة والحاوية دون ميلان */
             padding: 18px;
             border-radius: 15px;
             border: 1px solid var(--we-purple);
@@ -133,11 +171,12 @@
             font-size: 1.1rem;
             outline: none;
             box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            display: block;
         }
 
         .search-bar:focus { border-color: var(--we-magenta); }
 
-        footer { text-align: center; margin-top: 60px; padding: 30px; color: #888; border-top: 1px solid #2d0b52; }
+        footer { text-align: center; margin-top: 60px; padding: 30px; color: #888; border-top: 1px solid #2d0b52; width: 100%; }
     </style>
 </head>
 <body>
@@ -153,7 +192,9 @@
 
     <input type="text" id="search" class="search-bar" placeholder="ابحث عن الخدمة (رصيد، انترنت، كاش، سلفني)..." onkeyup="searchCodes()">
 
-    <h2 class="section-title">⚙️ الخدمات الأساسية وتغيير النظام</h2>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">⚙️ الخدمات الأساسية وتغيير النظام</h2>
+    </div>
     <div class="grid">
         <div class="card">
             <span class="card-title">معرفة رقم الهاتف الخاص بك</span>
@@ -176,6 +217,14 @@
             <div class="code-box" onclick="copyCode('*504#')">*504#</div>
         </div>
         <div class="card">
+            <span class="card-title">خدمة سوبر سلفني (رصيد إضافي)</span>
+            <div class="code-box" onclick="copyCode('*911#')">*911#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">الاستعلام عن رصيد سلفني</span>
+            <div class="code-box" onclick="copyCode('*240#')">*240#</div>
+        </div>
+        <div class="card">
             <span class="card-title">خدمة كلمني شكراً لخط آخر</span>
             <div class="code-box" onclick="copyCode('*515*الرقم#')">*515*number#</div>
         </div>
@@ -188,84 +237,120 @@
             <div class="code-box" onclick="copyCode('*111#')">*111#</div>
         </div>
         <div class="card">
-            <span class="card-title">كود معرفة الـ PUK</span>
+            <span class="card-title">كود معرفة الـ PUK الخاص بالشريحة</span>
             <div class="code-box" onclick="copyCode('*222#')">*222#</div>
         </div>
     </div>
 
-    <h2 class="section-title">🌐 باقات الإنترنت والموبايل داتا</h2>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">🌐 باقات الإنترنت والموبايل داتا</h2>
+    </div>
     <div class="grid">
         <div class="card">
             <span class="card-title">الاشتراك وإدارة باقات الإنترنت (نايترو / كيميت)</span>
             <div class="code-box" onclick="copyCode('*999#')">*999#</div>
         </div>
         <div class="card">
-            <span class="card-title">الاستعلام عن استهلاك باقة الإنترنت</span>
+            <span class="card-title">الاستعلام عن استهلاك باقة الإنترنت المتبقي</span>
             <div class="code-box" onclick="copyCode('*414#')">*414#</div>
         </div>
         <div class="card">
-            <span class="card-title">إلغاء باقة الإنترنت الحالية</span>
+            <span class="card-title">إلغاء باقة الإنترنت الحالية نهائياً</span>
             <div class="code-box" onclick="copyCode('*999*0#')">*999*0#</div>
         </div>
         <div class="card">
-            <span class="card-title">ضبط إعدادات الإنترنت وتنشيط الخدمة</span>
+            <span class="card-title">ضبط إعدادات الإنترنت وتنشيط نقطة الوصول</span>
             <div class="code-box" onclick="copyCode('*176#')">*176#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">باقة إنترنت يومية 1 جنيه</span>
+            <div class="code-box" onclick="copyCode('*999*01#')">*999*01#</div>
         </div>
     </div>
 
-    <h2 class="section-title">📞 باقات المكالمات وأنظمة كيكس ومكالمات الإنترنت</h2>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">📞 باقات المكالمات وأنظمة كيكس وأجدع شحنة</h2>
+    </div>
     <div class="grid">
         <div class="card">
             <span class="card-title">الاشتراك وإدارة باقات كيكس (KIX)</span>
             <div class="code-box" onclick="copyCode('*666#')">*666#</div>
         </div>
         <div class="card">
-            <span class="card-title">تجديد باقة كيكس ومكالمات وي مبكراً</span>
+            <span class="card-title">تجديد باقة كيكس ونظام وي مكالمات مبكراً</span>
             <div class="code-box" onclick="copyCode('*666*2#')">*666*2#</div>
         </div>
         <div class="card">
-            <span class="card-title">الاستعلام عن استهلاك باقة المكالمات</span>
+            <span class="card-title">الاستعلام عن استهلاك باقة المكالمات (الكيكسات المتبقية)</span>
             <div class="code-box" onclick="copyCode('*600*5#')">*600*5#</div>
         </div>
         <div class="card">
-            <span class="card-title">الاشتراك في باقات وي تظبيط</span>
+            <span class="card-title">الاشتراك وإدارة باقات وي تظبيط الشاملة</span>
             <div class="code-box" onclick="copyCode('*660#')">*660#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">عروض أجدع شحنة من وي (كروت الشحن الهدايا)</span>
+            <div class="code-box" onclick="copyCode('*501#')">*501#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">التحويل لنظام كنترول تظبيط</span>
+            <div class="code-box" onclick="copyCode('*660*0#')">*660*0#</div>
         </div>
     </div>
 
-    <h2 class="section-title">💰 خدمات وي كاش (WE Cash) المالية</h2>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">💰 خدمات ومحفظة وي كاش (WE Cash) المالية</h2>
+    </div>
     <div class="grid">
         <div class="card">
-            <span class="card-title">القائمة الرئيسية لـ وي كاش (سحب/إيداع/تحويل)</span>
+            <span class="card-title">القائمة الرئيسية لـ وي كاش (تحويل، سحب، إيداع)</span>
             <div class="code-box" onclick="copyCode('*323#')">*323#</div>
         </div>
         <div class="card">
-            <span class="card-title">تغيير أو إنشاء الرقم السري لـ وي كاش</span>
+            <span class="card-title">الاستعلام عن رصيد محفظة وي كاش الحالي</span>
+            <div class="code-box" onclick="copyCode('*323*1#')">*323*1#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">تغيير أو إنشاء الرقم السري لمحفظة وي كاش</span>
             <div class="code-box" onclick="copyCode('*323*2#')">*323*2#</div>
         </div>
         <div class="card">
-            <span class="card-title">الاستعلام عن رصيد محفظة وي كاش</span>
-            <div class="code-box" onclick="copyCode('*323*1#')">*323*1#</div>
+            <span class="card-title">سحب أموال وي كاش من الـ ATM صراف آلي</span>
+            <div class="code-box" onclick="copyCode('*323*3#')">*323*3#</div>
         </div>
     </div>
 
-    <h2 class="section-title">✨ الخدمات الإضافية والترفيهية والبريد الصوتي</h2>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">✨ الخدمات الإضافية والتحويل والبريد الصوتي</h2>
+    </div>
     <div class="grid">
         <div class="card">
-            <span class="card-title">خدمة الاحتفاظ بالمكالمات الفائتة (شهرياً)</span>
+            <span class="card-title">خدمة الاحتفاظ بالمكالمات الفائتة (الاشتراك الشهري)</span>
             <div class="code-box" onclick="copyCode('*066#')">*066#</div>
         </div>
         <div class="card">
-            <span class="card-title">إلغاء خدمة الكول تون (Call Tone)</span>
+            <span class="card-title">إلغاء خدمة الاحتفاظ بالمكالمات الفائتة</span>
+            <div class="code-box" onclick="copyCode('*066*0#')">*066*0#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">الاشتراك / إلغاء خدمة الكول تون (Call Tone)</span>
             <div class="code-box" onclick="copyCode('*777#')">*777#</div>
         </div>
         <div class="card">
-            <span class="card-title">خدمة البريد الصوتي والتحويل</span>
-            <div class="code-box" onclick="copyCode('*4*#')">*4*#</div>
+            <span class="card-title">تحويل المكالمات عند انشغال الخط لخط آخر</span>
+            <div class="code-box" onclick="copyCode('*67*الرقم#')">*67*number#</div>
         </div>
         <div class="card">
-            <span class="card-title">معرفة الأرقام المسجلة باسمك (الجهاز القومي)</span>
+            <span class="card-title">إلغاء تحويل المكالمات (جميع أنواع التحويل)</span>
+            <div class="code-box" onclick="copyCode('##002#')">##002#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">معرفة الأرقام المسجلة باسمك (الجهاز القومي للاتصالات)</span>
             <div class="code-box" onclick="copyCode('*155#')">*155#</div>
+        </div>
+        <div class="card">
+            <span class="card-title">خدمة من غير كلام المانعة للمكالمات المجهولة</span>
+            <div class="code-box" onclick="copyCode('*61*#')">*61*#</div>
         </div>
     </div>
 
@@ -279,7 +364,7 @@
     function copyCode(text) {
         let cleanText = text.replace('الرقم', '').replace('المبلغ', '').replace('الكود', '');
         navigator.clipboard.writeText(cleanText).then(() => {
-            alert("تم نسخ الكود: " + cleanText);
+            alert("تم نسخ الكود بنجاح: " + cleanText);
         });
     }
 
